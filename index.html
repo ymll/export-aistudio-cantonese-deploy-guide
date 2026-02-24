@@ -2,51 +2,80 @@
 <html lang="zh-HK">
 <head>
     <meta charset="UTF-8">
-    <title>AI Studio 廣東話部署攻略</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Studio 部署神器 - 廣東話版</title>
     <style>
-        .step-gradient { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+        :root { --primary: #4285f4; --success: #34a853; --warning: #fbbc05; --dark: #202124; }
+        body { font-family: 'Segoe UI', system-ui, sans-serif; background: #f8f9fa; margin: 0; padding: 0; color: #3c4043; }
+        .nav { background: white; padding: 1rem 5%; box-shadow: 0 2px 10px rgba(0,0,0,0.05); display: flex; align-items: center; gap: 15px; }
+        .container { max-width: 800px; margin: 40px auto; padding: 0 20px; }
+        .hero { text-align: center; margin-bottom: 50px; }
+        .hero h1 { font-size: 2.5rem; color: var(--dark); margin-bottom: 10px; }
+        .hero p { font-size: 1.2rem; color: #70757a; }
+        
+        .step-card { background: white; border-radius: 16px; padding: 30px; margin-bottom: 30px; box-shadow: 0 4px 6px rgba(0,0,0,0.02); border: 1px solid #e0e0e0; transition: transform 0.2s; }
+        .step-card:hover { transform: translateY(-5px); box-shadow: 0 8px 15px rgba(0,0,0,0.1); }
+        .step-num { background: var(--primary); color: white; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; border-radius: 50%; font-weight: bold; margin-bottom: 20px; }
+        
+        .code-block { background: #202124; color: #fff; padding: 15px; border-radius: 8px; font-family: 'Consolas', monospace; position: relative; margin: 15px 0; }
+        .copy-tag { position: absolute; top: 5px; right: 10px; font-size: 10px; color: #9aa0a6; }
+        
+        .alert { background: #fef7e0; border: 1px solid #feefc3; padding: 15px; border-radius: 8px; display: flex; gap: 10px; align-items: center; color: #b06000; }
+        .btn { display: inline-block; background: var(--primary); color: white; padding: 12px 30px; border-radius: 8px; text-decoration: none; font-weight: bold; margin-top: 20px; }
+        
+        @media (max-width: 600px) { .hero h1 { font-size: 1.8rem; } }
     </style>
 </head>
-<body class="bg-gray-50 text-gray-800">
-    <div class="max-w-xl mx-auto py-10 px-6">
-        <header class="text-center mb-12">
-            <h1 class="text-4xl font-extrabold text-indigo-600 mb-2">AI Studio 部署神器</h1>
-            <p class="text-gray-500">廣東話逐步教學，唔識 Code 都做到！</p>
-        </header>
+<body>
 
-        <div class="space-y-8">
-            <div class="bg-white rounded-2xl shadow-sm p-6 border border-gray-100">
-                <div class="flex items-center mb-4">
-                    <span class="step-gradient text-white w-8 h-8 rounded-full flex items-center justify-center font-bold mr-3">1</span>
-                    <h2 class="text-xl font-bold">攞返啲 Code</h2>
-                </div>
-                <p class="text-gray-600 mb-4">喺 Google AI Studio 撳右上角個 <span class="font-mono bg-gray-100 px-1">Get Code</span> 掣，揀 <span class="font-bold">GitHub</span> 直接匯出。</p>
-            </div>
+<div class="nav">
+    <div style="font-size: 24px;">🤖</div>
+    <div style="font-weight: bold; font-size: 18px;">Google AI Studio 廣東話部署助手</div>
+</div>
 
-            <div class="bg-white rounded-2xl shadow-sm p-6 border border-gray-100">
-                <div class="flex items-center mb-4">
-                    <span class="step-gradient text-white w-8 h-8 rounded-full flex items-center justify-center font-bold mr-3">2</span>
-                    <h2 class="text-xl font-bold text-red-500">收埋條 API Key (必做)</h2>
-                </div>
-                <p class="text-gray-600 mb-4">千祈唔好將條 Key 寫死喺 code！喺 Vercel 入面填就得。</p>
-                <div class="bg-gray-900 text-green-400 p-3 rounded-lg text-sm font-mono">
-                    API_KEY = process.env.VITE_GEMINI_API_KEY
-                </div>
-            </div>
+<div class="container">
+    <div class="hero">
+        <h1>唔使識 Code 都可以部署 🚀</h1>
+        <p>跟住下面 4 個步驟，將你嘅 AI 應用程式分享畀全世界！</p>
+    </div>
 
-            <div class="bg-white rounded-2xl shadow-sm p-6 border border-gray-100">
-                <div class="flex items-center mb-4">
-                    <span class="step-gradient text-white w-8 h-8 rounded-full flex items-center justify-center font-bold mr-3">3</span>
-                    <h2 class="text-xl font-bold">連線去 Vercel</h2>
-                </div>
-                <p class="text-gray-600">喺 Vercel 官網 Login GitHub，揀返你個項目撳 <span class="font-bold text-indigo-600">Import</span> 就搞掂。</p>
-            </div>
-        </div>
-
-        <footer class="mt-12 text-center text-gray-400 text-sm">
-            <p>由 Gemini 協力製作 • 2026</p>
+    <div class="step-card">
+        <div class="step-num">1</div>
+        <h2>攞 Code 並上傳去 GitHub</h2>
+        <p>喺 AI Studio 撳右上角個 <b>"Export to GitHub"</b>。如果你係手動下載 ZIP，請去 <a href="https://github.com" target="_blank">GitHub</a> 開個新 Repo，將啲檔案 Drag 入去。</p>
+        <div class="alert">
+            <span>💡</span> <b>私人建議：</b>揀 Private (私人) 倉庫，咁就萬無一失！
         </div>
     </div>
+
+    <div class="step-card">
+        <div class="step-num">2</div>
+        <h2>改一改 API Key (最重要)</h2>
+        <p>打開你個 <code>main.js</code> 或者 <code>App.js</code>，搵到填 API Key 嘅位置。將佢改做：</p>
+        <div class="code-block">
+            <span class="copy-tag">JAVASCRIPT</span>
+            const API_KEY = import.meta.env.VITE_GEMINI_API_KEY;
+        </div>
+        <p style="font-size: 0.9rem; color: #666;">*咁樣做人哋就喺 Source Code 偷唔到你條 Key 喇！</p>
+    </div>
+
+    <div class="step-card">
+        <div class="step-num">3</div>
+        <h2>連接 Vercel</h2>
+        <p>去 <a href="https://vercel.com" target="_blank">Vercel.com</a> 用 GitHub 登入。撳 <b>"Add New"</b>，揀返你個 GitHub Repo 撳 <b>Import</b>。</p>
+    </div>
+
+    <div class="step-card">
+        <div class="step-num">4</div>
+        <h2>填返條 API Key 畀 Vercel</h2>
+        <p>喺部署畫面搵 <b>Environment Variables</b>，填入：</p>
+        <ul>
+            <li><b>Name:</b> <code style="color: var(--primary)">VITE_GEMINI_API_KEY</code></li>
+            <li><b>Value:</b> (貼返你條 AIza... 開頭嘅 Key)</li>
+        </ul>
+        <div class="btn" onclick="alert('加油！你差一步就成功喇！')">最後撳 Deploy 就得！</div>
+    </div>
+</div>
+
 </body>
 </html>
