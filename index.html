@@ -3,37 +3,136 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Studio 部署神器 - 廣東話版</title>
+    <title>AI Studio 部署全攻略 - 廣東話版</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        :root { --primary: #4285f4; --success: #34a853; --warning: #fbbc05; --dark: #202124; }
-        body { font-family: 'Segoe UI', system-ui, sans-serif; background: #f8f9fa; margin: 0; padding: 0; color: #3c4043; }
-        .nav { background: white; padding: 1rem 5%; box-shadow: 0 2px 10px rgba(0,0,0,0.05); display: flex; align-items: center; gap: 15px; }
-        .container { max-width: 800px; margin: 40px auto; padding: 0 20px; }
-        .hero { text-align: center; margin-bottom: 50px; }
-        .hero h1 { font-size: 2.5rem; color: var(--dark); margin-bottom: 10px; }
-        .hero p { font-size: 1.2rem; color: #70757a; }
-        
-        .step-card { background: white; border-radius: 16px; padding: 30px; margin-bottom: 30px; box-shadow: 0 4px 6px rgba(0,0,0,0.02); border: 1px solid #e0e0e0; transition: transform 0.2s; }
-        .step-card:hover { transform: translateY(-5px); box-shadow: 0 8px 15px rgba(0,0,0,0.1); }
-        .step-num { background: var(--primary); color: white; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; border-radius: 50%; font-weight: bold; margin-bottom: 20px; }
-        
-        .code-block { background: #202124; color: #fff; padding: 15px; border-radius: 8px; font-family: 'Consolas', monospace; position: relative; margin: 15px 0; }
-        .copy-tag { position: absolute; top: 5px; right: 10px; font-size: 10px; color: #9aa0a6; }
-        
-        .alert { background: #fef7e0; border: 1px solid #feefc3; padding: 15px; border-radius: 8px; display: flex; gap: 10px; align-items: center; color: #b06000; }
-        .btn { display: inline-block; background: var(--primary); color: white; padding: 12px 30px; border-radius: 8px; text-decoration: none; font-weight: bold; margin-top: 20px; }
-        
-        @media (max-width: 600px) { .hero h1 { font-size: 1.8rem; } }
+        body { font-family: 'Noto Sans TC', sans-serif; }
+        .step-shadow { box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1); }
     </style>
 </head>
-<body>
+<body class="bg-slate-50 text-slate-800">
 
-<div class="nav">
-    <div style="font-size: 24px;">🤖</div>
-    <div style="font-weight: bold; font-size: 18px;">Google AI Studio 廣東話部署助手</div>
-</div>
+    <header class="bg-indigo-600 text-white py-12 px-6 text-center">
+        <h1 class="text-3xl md:text-5xl font-bold mb-4">🤖 AI Studio 部署唔求人</h1>
+        <p class="text-indigo-100 text-lg">由零開始教你將 AI 擺上網，分享畀全世界用！</p>
+    </header>
 
-<div class="container">
+    <main class="max-w-4xl mx-auto py-12 px-6">
+        
+        <section class="mb-16">
+            <h2 class="text-2xl font-bold mb-6 text-indigo-800 border-b-2 border-indigo-200 pb-2">🤔 點解要放入 Vercel？有咩好處？</h2>
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="bg-white p-5 rounded-xl shadow-sm border border-indigo-50">
+                    <div class="text-3xl mb-2">💰</div>
+                    <h3 class="font-bold mb-2">完全免費</h3>
+                    <p class="text-sm text-slate-600">對於個人小項目，Vercel 提供非常慷慨嘅免費額度，唔使驚破產。</p>
+                </div>
+                <div class="bg-white p-5 rounded-xl shadow-sm border border-indigo-50">
+                    <div class="text-3xl mb-2">🌍</div>
+                    <h3 class="font-bold mb-2">全世界都睇到</h3>
+                    <p class="text-sm text-slate-600">AI Studio 只有你自己睇到。部署後你會有一條網址，send 畀邊個睇都得。</p>
+                </div>
+                <div class="bg-white p-5 rounded-xl shadow-sm border border-indigo-50">
+                    <div class="text-3xl mb-2">🔒</div>
+                    <h3 class="font-bold mb-2">保護 API Key</h3>
+                    <p class="text-sm text-slate-600">Vercel 幫你將重要嘅 Key 收喺「後台」，唔會被壞人喺 Source Code 度偷走。</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="space-y-12">
+            <h2 class="text-2xl font-bold mb-8 text-indigo-800 border-b-2 border-indigo-200 pb-2">🚀 步步教學 (Step-by-Step)</h2>
+
+            <div class="bg-white p-8 rounded-2xl step-shadow border-l-8 border-indigo-500">
+                <div class="flex items-center mb-4">
+                    <span class="bg-indigo-500 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold mr-3">1</span>
+                    <h3 class="text-xl font-bold">準備 GitHub 戶口</h3>
+                </div>
+                <p class="mb-4">GitHub 係一個放程式碼嘅「雲端夾萬」。</p>
+                <ul class="list-disc ml-6 space-y-2 text-slate-600">
+                    <li>去 <a href="https://github.com" class="text-indigo-600 underline">GitHub.com</a> 註冊。</li>
+                    <li>開一個新嘅 <b>Repository</b> (簡稱 Repo，即係一個項目文件夾)。</li>
+                    <li>名可以隨便起，例如 <code>my-ai-app</code>。</li>
+                    <li>揀 <b>Private (私人)</b> 就最安全。</li>
+                </ul>
+            </div>
+
+            <div class="bg-white p-8 rounded-2xl step-shadow border-l-8 border-blue-400">
+                <div class="flex items-center mb-4">
+                    <span class="bg-blue-400 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold mr-3">2</span>
+                    <h3 class="text-xl font-bold">由 AI Studio 攞 Code</h3>
+                </div>
+                <p class="mb-4">喺 Google AI Studio 整好你個 AI 之後：</p>
+                <ol class="list-decimal ml-6 space-y-2 text-slate-600">
+                    <li>撳右上角個 <b>"Get Code"</b> 掣。</li>
+                    <li>你會見到好多 code，唔使驚。揀 <b>"Download"</b> 攞 ZIP 檔。</li>
+                    <li>解壓個 ZIP 檔，入面所有檔案 Drag 入去你頭先開嗰個 GitHub Repo 度。</li>
+                </ol>
+            </div>
+
+            <div class="bg-white p-8 rounded-2xl step-shadow border-l-8 border-amber-400">
+                <div class="flex items-center mb-4">
+                    <span class="bg-amber-400 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold mr-3">3</span>
+                    <h3 class="text-xl font-bold text-red-600">最重要：改 Environment Variables</h3>
+                </div>
+                <p class="mb-4 font-bold text-red-500 italic">如果你直接將 API Key 寫喺 Code 入面，條 Key 會失效或者俾人偷！</p>
+                <p class="mb-4 text-slate-600">喺你下載嘅檔案入面（通常係 <code>index.html</code> 或者 <code>main.js</code>），搵到 API Key 嗰行，將佢改做：</p>
+                <div class="bg-slate-900 text-amber-300 p-4 rounded-lg font-mono text-sm overflow-x-auto">
+                    const apiKey = import.meta.env.VITE_GEMINI_API_KEY;
+                </div>
+                <p class="mt-4 text-sm text-slate-500">* 註：如果你係普通 HTML，呢度要視乎你點寫。唔識改嘅話可以問我！</p>
+            </div>
+
+            <div class="bg-white p-8 rounded-2xl step-shadow border-l-8 border-green-500">
+                <div class="flex items-center mb-4">
+                    <span class="bg-green-500 text-white w-8 h-8 rounded-full flex items-center justify-center font-bold mr-3">4</span>
+                    <h3 class="text-xl font-bold text-green-700">喺 Vercel 開波</h3>
+                </div>
+                <p class="mb-4 text-slate-600">最後衝刺：</p>
+                <ol class="list-decimal ml-6 space-y-2 text-slate-600">
+                    <li>去 <a href="https://vercel.com" class="text-indigo-600 underline">Vercel.com</a> 用 GitHub 戶口 Login。</li>
+                    <li>撳 <b>"Add New"</b> -> <b>"Project"</b>。</li>
+                    <li>搵返你個 Repo 撳 <b>Import</b>。</li>
+                    <li>喺 <b>Environment Variables</b> 嗰欄，Name 填 <code>VITE_GEMINI_API_KEY</code>，Value 貼返你條真嘅 API Key。</li>
+                    <li>撳 <b>Deploy</b>，等 1 分鐘就收得工！</li>
+                </ol>
+            </div>
+        </section>
+
+        <section class="mt-20">
+            <h2 class="text-2xl font-bold mb-6 text-red-800 border-b-2 border-red-200 pb-2">❌ 常見錯誤 (Common Errors)</h2>
+            <div class="space-y-4">
+                <div class="bg-red-50 p-4 rounded-lg border border-red-100 text-red-800">
+                    <b>404 Not Found:</b> 通常係因為你個主檔案唔係叫 <code>index.html</code>。
+                </div>
+                <div class="bg-red-50 p-4 rounded-lg border border-red-100 text-red-800">
+                    <b>API Key Invalid:</b> 檢查下喺 Vercel 設定入面有無打錯字，或者有無多咗個空格。
+                </div>
+            </div>
+        </section>
+
+        <section class="mt-16 mb-12">
+            <h2 class="text-2xl font-bold mb-6 text-indigo-800 border-b-2 border-indigo-200 pb-2">❓ 常見問題 (FAQ)</h2>
+            <div class="space-y-6">
+                <div>
+                    <h3 class="font-bold text-indigo-700">Q: Vercel 同 Netlify 揀邊個？</h3>
+                    <p class="text-slate-600">A: 兩個都好！Vercel 部署速更快，UI 比較現代；Netlify 就功能比較多一啲。新手推薦先用 Vercel。</p>
+                </div>
+                <div>
+                    <h3 class="font-bold text-indigo-700">Q: 如果我想改 Code，係咪要重新 Deploy？</h3>
+                    <p class="text-slate-600">A: 唔使！只要你將新 Code 推上 GitHub，Vercel 會自動偵測到並幫你自動更新個網，超方便！</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-slate-800 text-slate-400 py-8 text-center">
+        <p>&copy; 2026 AI Studio 廣東話部署助手</p>
+    </footer>
+
+</body>
+</html>
     <div class="hero">
         <h1>唔使識 Code 都可以部署 🚀</h1>
         <p>跟住下面 4 個步驟，將你嘅 AI 應用程式分享畀全世界！</p>
