@@ -8,104 +8,122 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700&display=swap" rel="stylesheet">
     <style>
         body { font-family: 'Noto Sans TC', sans-serif; scroll-behavior: smooth; }
-        .platform-btn.active { border-color: #4f46e5; background-color: #eef2ff; ring: 2px; --tw-ring-color: #6366f1; }
+        /* 隱藏未選中嘅內容 */
         .step-content { display: none; }
         .step-content.active { display: block; }
+        /* 選中掣嘅樣式 */
+        .btn-active { border-color: #4f46e5 !important; background-color: #f5f3ff !important; ring: 2px; --tw-ring-color: #6366f1; }
     </style>
 </head>
 <body class="bg-slate-50 text-slate-800">
 
     <header class="bg-gradient-to-r from-indigo-700 to-slate-900 text-white py-16 px-6 text-center">
-        <h1 class="text-4xl md:text-6xl font-bold mb-4 italic">ymll</h1>
-        <p class="text-indigo-100 text-lg md:text-xl max-w-2xl mx-auto">AI Studio 廣東話部署全攻略：由零開始，將你嘅 AI 應用程式穩陣咁擺上網。</p>
+        <h1 class="text-4xl md:text-6xl font-bold mb-4 italic tracking-widest">ymll</h1>
+        <p class="text-indigo-100 text-lg md:text-xl max-w-2xl mx-auto opacity-90">AI Studio 廣東話部署全攻略</p>
     </header>
 
     <main class="max-w-4xl mx-auto py-12 px-6">
         
         <section class="mb-12">
-            <h2 class="text-2xl font-bold mb-8 text-center text-slate-900">第一步：揀選你想部署嘅平台</h2>
+            <h2 class="text-2xl font-bold mb-8 text-center text-slate-900">1. 揀你想部署嘅平台</h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                <button onclick="switchPlatform('gh-pages')" id="btn-gh-pages" class="platform-btn p-6 rounded-2xl border-2 border-transparent bg-white shadow-sm hover:shadow-md transition-all text-left">
+                <button onclick="changeTab('gh-pages')" id="tab-gh-pages" class="tab-button p-6 rounded-2xl border-2 border-transparent bg-white shadow-sm hover:shadow-md transition-all text-left">
                     <div class="text-3xl mb-2">🐙</div>
-                    <h3 class="font-bold text-lg">GitHub Pages</h3>
-                    <p class="text-xs text-slate-500 mt-2">最快、最簡單，但 API Key 安全性較低。</p>
+                    <h3 class="font-bold">GitHub Pages</h3>
+                    <p class="text-xs text-slate-500 mt-1">最快最簡單</p>
                 </button>
-                <button onclick="switchPlatform('vercel')" id="btn-vercel" class="platform-btn p-6 rounded-2xl border-2 border-transparent bg-white shadow-sm hover:shadow-md transition-all text-left active">
+
+                <button onclick="changeTab('vercel')" id="tab-vercel" class="tab-button p-6 rounded-2xl border-2 border-transparent bg-white shadow-sm hover:shadow-md transition-all text-left btn-active">
                     <div class="text-3xl mb-2">▲</div>
-                    <h3 class="font-bold text-lg">Vercel</h3>
-                    <p class="text-xs text-slate-500 mt-2">現代 Web 必選，平衡速度同安全性。</p>
+                    <h3 class="font-bold">Vercel</h3>
+                    <p class="text-xs text-slate-500 mt-1">推薦：安全穩定</p>
                 </button>
-                <button onclick="switchPlatform('cloudflare')" id="btn-cloudflare" class="platform-btn p-6 rounded-2xl border-2 border-transparent bg-white shadow-sm hover:shadow-md transition-all text-left">
+
+                <button onclick="changeTab('cloudflare')" id="tab-cloudflare" class="tab-button p-6 rounded-2xl border-2 border-transparent bg-white shadow-sm hover:shadow-md transition-all text-left">
                     <div class="text-3xl mb-2">🧡</div>
-                    <h3 class="font-bold text-lg">Cloudflare Pages</h3>
-                    <p class="text-xs text-slate-500 mt-2">極限性能、無限流量，專業人士之選。</p>
+                    <h3 class="font-bold">Cloudflare</h3>
+                    <p class="text-xs text-slate-500 mt-1">專業：無限流量</p>
                 </button>
             </div>
         </section>
 
-        <section id="platform-instructions" class="min-h-[400px]">
+        <section class="min-h-[300px]">
             
-            <div id="content-gh-pages" class="step-content space-y-8 animate-in fade-in duration-500">
-                <div class="bg-white p-8 rounded-3xl shadow-sm border border-slate-200">
-                    <h3 class="text-xl font-bold mb-4 text-slate-800">GitHub Pages 部署流程</h3>
-                    <ol class="space-y-4 text-slate-600">
-                        <li class="flex gap-4"><b>1.</b> 喺 GitHub 開個名為 <code class="bg-slate-100 px-1 text-indigo-600">index.html</code> 嘅檔案。</li>
-                        <li class="flex gap-4"><b>2.</b> 去 Repo 嘅 <span class="font-bold">Settings > Pages</span>。</li>
-                        <li class="flex gap-4"><b>3.</b> Branch 揀 <span class="font-bold">main / root</span>，撳 Save。</li>
-                    </ol>
-                    <div class="mt-6 p-4 bg-red-50 rounded-lg text-red-700 text-sm italic">
-                        ⚠️ 警告：GitHub Pages 冇後端，你條 API Key 會暴露喺網頁源代碼度，只建議做練習用。
-                    </div>
+            <div id="content-gh-pages" class="step-content">
+                <div class="bg-white p-8 rounded-3xl shadow-sm border border-slate-200 border-l-8 border-l-slate-800">
+                    <h3 class="text-xl font-bold mb-4">🐙 GitHub Pages 步驟</h3>
+                    <ul class="space-y-4 text-slate-600">
+                        <li>1. 確保你個 Repo 入面有 <code class="bg-slate-100 px-1">index.html</code>。</li>
+                        <li>2. 到 Settings > Pages，揀選 <b>main branch</b>。</li>
+                        <li>3. 等 1 分鐘就會有網址。</li>
+                    </ul>
+                    <div class="mt-4 p-4 bg-red-50 text-red-600 rounded-xl text-sm italic">⚠️ 注意：條 API Key 會曝光。</div>
                 </div>
             </div>
 
-            <div id="content-vercel" class="step-content active space-y-8 animate-in fade-in duration-500">
-                <div class="bg-white p-8 rounded-3xl shadow-sm border border-slate-200">
-                    <h3 class="text-xl font-bold mb-4 text-indigo-600 font-mono">Vercel 部署流程 (推薦)</h3>
-                    <div class="space-y-6">
-                        <div class="border-l-4 border-indigo-500 pl-4">
-                            <h4 class="font-bold">1. 註冊並連接</h4>
-                            <p class="text-sm text-slate-600">用 GitHub 戶口登入 Vercel，Import 你個 Repo。</p>
-                        </div>
-                        <div class="border-l-4 border-indigo-500 pl-4">
-                            <h4 class="font-bold text-red-500">2. 設定環境變量 (Environment Variables)</h4>
-                            <p class="text-sm text-slate-600 mb-2">喺 Deploy 前搵 "Environment Variables" 欄位：</p>
-                            <code class="block bg-slate-900 text-indigo-300 p-2 rounded">Name: VITE_GEMINI_API_KEY<br>Value: [你條 API Key]</code>
-                        </div>
-                        <div class="border-l-4 border-indigo-500 pl-4">
-                            <h4 class="font-bold">3. 安全改 Code</h4>
-                            <p class="text-sm text-slate-600">Code 入面要咁寫：<br><code class="text-xs bg-slate-100">const key = import.meta.env.VITE_GEMINI_API_KEY;</code></p>
-                        </div>
-                    </div>
+            <div id="content-vercel" class="step-content active">
+                <div class="bg-white p-8 rounded-3xl shadow-sm border border-slate-200 border-l-8 border-l-indigo-600">
+                    <h3 class="text-xl font-bold mb-4 text-indigo-600">▲ Vercel 步驟 (推薦)</h3>
+                    <ul class="space-y-4 text-slate-600">
+                        <li>1. 用 GitHub 戶口登入 Vercel 並 Import Repo。</li>
+                        <li>2. 喺 <b>Environment Variables</b> 填入 <code class="text-indigo-600">VITE_GEMINI_API_KEY</code>。</li>
+                        <li>3. 撳 Deploy，搞掂！</li>
+                    </ul>
                 </div>
             </div>
 
-            <div id="content-cloudflare" class="step-content space-y-8 animate-in fade-in duration-500">
-                <div class="bg-white p-8 rounded-3xl shadow-sm border border-orange-200">
-                    <h3 class="text-xl font-bold mb-4 text-orange-600">Cloudflare Pages 部署流程</h3>
-                    <div class="space-y-4 text-slate-600">
-                        <p>1. 喺 Cloudflare Dashboard 揀 <b>Workers & Pages</b> -> <b>Create Application</b>。</p>
-                        <p>2. Connect GitHub 並揀選你的 Repo。</p>
-                        <p>3. 喺 <b>Environment Variables</b> 填寫 Key 嘅名同數值。</p>
-                        <p>4. 喺 <b>Build settings</b> 確保 Build Command 同 Output Directory 填啱（通常係 Vite 預設）。</p>
-                    </div>
+            <div id="content-cloudflare" class="step-content">
+                <div class="bg-white p-8 rounded-3xl shadow-sm border border-slate-200 border-l-8 border-l-orange-500">
+                    <h3 class="text-xl font-bold mb-4 text-orange-600">🧡 Cloudflare Pages 步驟</h3>
+                    <ul class="space-y-4 text-slate-600">
+                        <li>1. 喺 CF Dashboard 揀 Workers & Pages > Create。</li>
+                        <li>2. 連接 GitHub，揀返個 Repo。</li>
+                        <li>3. 同樣喺 Settings 入面填返 <b>Environment Variables</b>。</li>
+                    </ul>
                 </div>
             </div>
 
         </section>
 
-        <section class="mt-20 border-t pt-12">
-            <h2 class="text-2xl font-bold mb-8 text-slate-900">常见問題 (FAQ)</h2>
-            <div class="grid md:grid-cols-2 gap-8 text-sm">
-                <div>
-                    <h4 class="font-bold mb-2">Q: 點解我個網頁開到但 AI 無反應？</h4>
-                    <p class="text-slate-600 leading-relaxed">A: 99% 係因為環境變量 (API Key) 入錯名或者未喺平台設定好。記得個名一定要同你 Code 入面嗰個完全一樣。</p>
-                </div>
-                <div>
-                    <h4 class="font-bold mb-2">Q: 點解 GitHub Pages 唔安全？</h4>
-                    <p class="text-slate-600 leading-relaxed">A: 因為任何人 Right Click 「檢視網頁原始碼」都可以直接睇到你寫喺入面嘅 API Key。Vercel 同 Cloudflare 會幫你隱藏呢啲資訊。</p>
-                </div>
+        <section class="mt-16 pt-8 border-t border-slate-200">
+            <h2 class="text-xl font-bold mb-4">❓ 常見問題</h2>
+            <div class="bg-indigo-50 p-6 rounded-2xl text-sm text-indigo-900">
+                <b>問：點解要用 Vercel 而唔係 GitHub Pages？</b><br>
+                答：因為 Vercel 可以幫你收埋條 API Key，唔會俾人喺網頁 Source Code 度偷走！
             </div>
         </section>
     </main>
 
+    <footer class="bg-slate-900 text-slate-500 py-12 text-center">
+        <p class="text-2xl font-bold text-slate-200 mb-2 tracking-widest">ymll</p>
+        <p class="text-xs">致力於簡單部署 • 2026</p>
+    </footer>
+
+    <script>
+        function changeTab(platform) {
+            // 1. 隱藏所有內容
+            const contents = document.getElementsByClassName('step-content');
+            for (let i = 0; i < contents.length; i++) {
+                contents[i].style.display = 'none';
+            }
+            
+            // 2. 移除所有掣嘅 active 樣式
+            const tabs = document.getElementsByClassName('tab-button');
+            for (let i = 0; i < tabs.length; i++) {
+                tabs[i].classList.remove('btn-active');
+            }
+            
+            // 3. 顯示選中內容
+            document.getElementById('content-' + platform).style.display = 'block';
+            
+            // 4. 加返 active 樣式去選中嘅掣
+            document.getElementById('tab-' + platform).classList.add('btn-active');
+        }
+
+        // 初始化：確保 Vercel 係開住先
+        window.onload = function() {
+            changeTab('vercel');
+        };
+    </script>
+</body>
+</html>
