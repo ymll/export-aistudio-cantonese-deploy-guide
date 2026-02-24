@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+    <meta charset="UTF-8">
+    <title>AI Studio 廣東話部署攻略</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .step-gradient { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+    <div class="max-w-xl mx-auto py-10 px-6">
+        <header class="text-center mb-12">
+            <h1 class="text-4xl font-extrabold text-indigo-600 mb-2">AI Studio 部署神器</h1>
+            <p class="text-gray-500">廣東話逐步教學，唔識 Code 都做到！</p>
+        </header>
+
+        <div class="space-y-8">
+            <div class="bg-white rounded-2xl shadow-sm p-6 border border-gray-100">
+                <div class="flex items-center mb-4">
+                    <span class="step-gradient text-white w-8 h-8 rounded-full flex items-center justify-center font-bold mr-3">1</span>
+                    <h2 class="text-xl font-bold">攞返啲 Code</h2>
+                </div>
+                <p class="text-gray-600 mb-4">喺 Google AI Studio 撳右上角個 <span class="font-mono bg-gray-100 px-1">Get Code</span> 掣，揀 <span class="font-bold">GitHub</span> 直接匯出。</p>
+            </div>
+
+            <div class="bg-white rounded-2xl shadow-sm p-6 border border-gray-100">
+                <div class="flex items-center mb-4">
+                    <span class="step-gradient text-white w-8 h-8 rounded-full flex items-center justify-center font-bold mr-3">2</span>
+                    <h2 class="text-xl font-bold text-red-500">收埋條 API Key (必做)</h2>
+                </div>
+                <p class="text-gray-600 mb-4">千祈唔好將條 Key 寫死喺 code！喺 Vercel 入面填就得。</p>
+                <div class="bg-gray-900 text-green-400 p-3 rounded-lg text-sm font-mono">
+                    API_KEY = process.env.VITE_GEMINI_API_KEY
+                </div>
+            </div>
+
+            <div class="bg-white rounded-2xl shadow-sm p-6 border border-gray-100">
+                <div class="flex items-center mb-4">
+                    <span class="step-gradient text-white w-8 h-8 rounded-full flex items-center justify-center font-bold mr-3">3</span>
+                    <h2 class="text-xl font-bold">連線去 Vercel</h2>
+                </div>
+                <p class="text-gray-600">喺 Vercel 官網 Login GitHub，揀返你個項目撳 <span class="font-bold text-indigo-600">Import</span> 就搞掂。</p>
+            </div>
+        </div>
+
+        <footer class="mt-12 text-center text-gray-400 text-sm">
+            <p>由 Gemini 協力製作 • 2026</p>
+        </div>
+    </div>
+</body>
+</html>
